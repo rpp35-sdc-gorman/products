@@ -1,10 +1,13 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
 const _ = require('lodash');
 // client.connect();
 
 const products = async (page = 1, count = 5) => {
-  const client = new Client();
+  const client = new Pool({
+    host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
+    user: 'ubuntu',
+  });
   client.connect();
   const { rows } = await client.query(
     'select * from products limit $1 offset $2;',
@@ -15,7 +18,10 @@ const products = async (page = 1, count = 5) => {
 };
 
 const product = async (productId) => {
-  const client = new Client();
+  const client = new Pool({
+    host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
+    user: 'ubuntu',
+  });
   client.connect();
   const {
     rows: [product],
@@ -32,7 +38,10 @@ const product = async (productId) => {
 };
 
 const styles = async (productId) => {
-  const client = new Client();
+  const client = new Pool({
+    host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
+    user: 'ubuntu',
+  });
   client.connect();
   const { rows } = await client.query(
     'select * from styles where product_id = $1;',
@@ -66,7 +75,10 @@ const styles = async (productId) => {
 };
 
 const related = async (productId) => {
-  const client = new Client();
+  const client = new Pool({
+    host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
+    user: 'ubuntu',
+  });
   client.connect();
   let related = (
     await client.query(
