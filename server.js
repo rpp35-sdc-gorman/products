@@ -12,6 +12,7 @@ app.get('/products', (req, res, next) => {
       res.send(rows);
     })
     .catch((reason) => {
+      console.error(reason);
       res.status(500).send(reason);
     });
 });
@@ -24,6 +25,7 @@ app.get('/products/:id', (req, res, next) => {
       res.send(rows);
     })
     .catch((reason) => {
+      console.error(reason);
       res.status(500).send(reason);
     });
 });
@@ -36,6 +38,7 @@ app.get('/products/:id/styles', (req, res, next) => {
       res.send(rows);
     })
     .catch((reason) => {
+      console.error(reason);
       res.status(500).send(reason);
     });
 });
@@ -46,6 +49,7 @@ app.get('/products/:id/related', (req, res, next) => {
       res.send(rows);
     })
     .catch((reason) => {
+      console.error(reason);
       res.status(500).send(reason);
     });
 });

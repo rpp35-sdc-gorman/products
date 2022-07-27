@@ -1,10 +1,9 @@
-const { Pool } = require('pg');
+const { Pool, Client } = require('pg');
 
 const _ = require('lodash');
-// client.connect();
 
 const products = async (page = 1, count = 5) => {
-  const client = new Pool({
+  const client = new Client({
     host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
     user: 'ubuntu',
   });
@@ -18,7 +17,7 @@ const products = async (page = 1, count = 5) => {
 };
 
 const product = async (productId) => {
-  const client = new Pool({
+  const client = new Client({
     host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
     user: 'ubuntu',
   });
@@ -38,7 +37,7 @@ const product = async (productId) => {
 };
 
 const styles = async (productId) => {
-  const client = new Pool({
+  const client = new Client({
     host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
     user: 'ubuntu',
   });
@@ -75,7 +74,7 @@ const styles = async (productId) => {
 };
 
 const related = async (productId) => {
-  const client = new Pool({
+  const client = new Client({
     host: 'ec2-52-43-109-39.us-west-2.compute.amazonaws.com',
     user: 'ubuntu',
   });
