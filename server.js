@@ -4,6 +4,7 @@ const express = require('express');
 const rediss = require('redis');
 const path = require('path');
 const redis = rediss.createClient(6379);
+require('newrelic');
 redis.connect();
 redis.on('connect', function () {
   console.log('Connected!');
